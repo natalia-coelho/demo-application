@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-@Repository
-public class FakeDataAccessService implements PersonDao {
+@Repository("fakeDao")
+public class FakePersonDataAccessService implements PersonDao {
     private static List<Person> database = new ArrayList<>();
     @Override
     public int insertPerson(UUID id, Person person) {
