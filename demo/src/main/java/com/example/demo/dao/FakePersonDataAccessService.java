@@ -39,9 +39,9 @@ public class FakePersonDataAccessService implements PersonDao {
     public int updatePersonById(UUID id, Person person) {
         return selectPersonById(id)
                 .map(p -> {
-                    int indexOfPersonToDelete = database.indexOf(person);
-                    if(indexOfPersonToDelete >= 0) {
-                        database.set(indexOfPersonToDelete, person);
+                    int indexOfPersonToUpdate = database.indexOf(p);
+                    if(indexOfPersonToUpdate >= 0) {
+                        database.set(indexOfPersonToUpdate, new Person(id, person.getName()));
                         return 1;
                     }
                     return 0;
